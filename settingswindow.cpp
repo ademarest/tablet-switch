@@ -148,7 +148,7 @@ void SettingsWindow::setupTrayMenuActions(){
 
 void SettingsWindow::setupSystemTray(){
     this->setupTrayMenuActions();
-    trayIconMenu = new QMenu(this);
+    trayIconMenu->clear();
     trayIconMenu->addAction(showSettingsWindowAction);
 
     if(ui->stylusOnlyOptionsCheckBox->isChecked()){

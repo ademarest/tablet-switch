@@ -62,7 +62,7 @@ private:
     QAction *showIconTrayMenuAtCursorPosition;
 
     QSystemTrayIcon *trayIcon = new QSystemTrayIcon(this);
-    QMenu *trayIconMenu;
+    QMenu *trayIconMenu = new QMenu(this);;
 
     void setSystemTrayIconThemeComboBox();
     void findTabletSwitchEventDeviceNames();
