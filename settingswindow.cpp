@@ -147,6 +147,8 @@ void SettingsWindow::setupTrayMenuActions(){
 }
 
 void SettingsWindow::setupSystemTray(){
+    trayIcon->deleteLater();
+    trayIcon = new QSystemTrayIcon(this);
 
     this->setupTrayMenuActions();
     trayIconMenu = new QMenu(this);
@@ -167,6 +169,7 @@ void SettingsWindow::setupSystemTray(){
     }
 
     //trayIconMenu->setSizePolicy();
+
     trayIcon->setContextMenu(trayIconMenu);
 }
 
