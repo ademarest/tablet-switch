@@ -28,3 +28,5 @@ The following packages are required to run this on ArchLinux
 * libevdev  
   
 Finally you can run the executable bin tablet-switch.
+
+![Screenshot from 2023-12-30 11-25-58](https://github.com/ademarest/tablet-switch/assets/17366618/ecbde600-9d92-4e91-b106-f3dcb2556698)
