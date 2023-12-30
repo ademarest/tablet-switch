@@ -147,9 +147,6 @@ void SettingsWindow::setupTrayMenuActions(){
 }
 
 void SettingsWindow::setupSystemTray(){
-    trayIcon->deleteLater();
-    trayIcon = new QSystemTrayIcon(this);
-
     this->setupTrayMenuActions();
     trayIconMenu = new QMenu(this);
     trayIconMenu->addAction(showSettingsWindowAction);
@@ -162,15 +159,12 @@ void SettingsWindow::setupSystemTray(){
     trayIconMenu->addAction(computerModeAction);
     trayIconMenu->addAction(quitAction);
 
-    trayIcon->setIcon(getIconForInputMode(this->currentInputMode));
-
     if(!trayIcon->isVisible()){
         trayIcon->show();
     }
 
-    //trayIconMenu->setSizePolicy();
-
     trayIcon->setContextMenu(trayIconMenu);
+    trayIcon->setIcon(getIconForInputMode(this->currentInputMode));
 }
 
 void SettingsWindow::activateTabletStylusOnlyInputMode(){
