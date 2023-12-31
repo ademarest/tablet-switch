@@ -1,5 +1,9 @@
 ## Intro  
 tablet-switch currently works on my HP ENVY x360 Convert 13-ay1035nr.  
+It should work on other laptops with a tablet switch device.  
+
+The software will scan through input devices looking 2-in-1 tablet switches which have the event codes EV_SW,SW_TABLET_MODE.  
+Those devies will be populated and you can select the tablet switch for your device.
   
 This program creates a system tray icon to toggle different operating modes for your 2-in-1.  
 Here's what the different operating modes do:  
@@ -7,9 +11,10 @@ Here's what the different operating modes do:
 * **Stylus Only Mode**, only the sytlus is available for input. The touch screen, built-in keyboard, and trackpad are disabled.
 * **Computer Mode** all inputs will be enabled.
 
-Upon selecting either Tablet mode or Stylus Only Mode, HP WMI Hotkeys will be triggerd.  
-HP WMI Hotkeys lets the operating system know that it's in tablet mode.  
-Next it will disable the touchpad and keyboard via libevdev.  
+Upon selecting either Tablet mode or Stylus Only Mode, tablet-switch with send a SW_TABLET_MODE event via the tablet switch input device.  
+In my case the tablet switch input device is "HP WMI Hotkeys".  
+Tablet-switch uses the tablet switch device to alert the operating system that the computer is in tablet mode.  
+Gnome for instance will disable the keyboard and trackpad while enabling the on screen keyboard and screen rotation.
   
 ## Getting started  
 Install Qt Creator.  
@@ -18,7 +23,8 @@ Setup your build environment.
 Compile!  
   
 You will need to add your user to the input group.  
-This is not desireable from a security perspective.  
+This is **not** desireable from a security perspective.  
+TODO: Figure out if it's possible to do this via udev.  
 ```bash
 # useradd -aG input andrew
 ```
