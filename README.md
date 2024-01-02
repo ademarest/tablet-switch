@@ -17,6 +17,8 @@ The SW_TABLET_MODE event will alert the operating system that the computer is in
 Gnome for instance will disable the keyboard and trackpad while enabling the on screen keyboard and screen rotation.
   
 ## Getting started  
+Review the code.
+Clone the repo.
 Install Qt Creator.  
 Open the .pro file.  
 Setup your build environment.  
