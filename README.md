@@ -1,15 +1,15 @@
 ## Intro  
-tablet-switch currently works on my HP ENVY x360 Convert 13-ay1035nr.  
-It should work on other laptops with a tablet switch device.  
-
-The software will scan through input devices looking 2-in-1 tablet switches which have the event codes EV_SW,SW_TABLET_MODE.  
-Those devies will be populated and you can select the tablet switch for your device.
-  
-This program creates a system tray icon to toggle different operating modes for your 2-in-1.  
+Tablet-switch is a systemtray program to manually toggle different operating modes for your 2-in-1 on Linux.  
 Here's what the different operating modes do:  
 * **Tablet Mode**, both touch and stylus input are available. The built-in keyboard and trackpad are disabled.  
 * **Stylus Only Mode**, only the sytlus is available for input. The touch screen, built-in keyboard, and trackpad are disabled.
 * **Computer Mode** all inputs will be enabled.
+
+tablet-switch currently works on my HP ENVY x360 Convert 13-ay1035nr.  
+It should work on other laptops with a tablet switch device.  
+  
+The software will scan through input devices looking 2-in-1 tablet switches which have the event codes EV_SW,SW_TABLET_MODE.  
+Those devices will be populated and you can select the tablet switch for your device.
 
 Upon selecting either Tablet mode or Stylus Only Mode, tablet-switch with send a SW_TABLET_MODE event via the tablet switch input device.  
 In my case the tablet switch input device is "HP WMI Hotkeys".  
