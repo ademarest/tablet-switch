@@ -11,7 +11,7 @@ It should work on other laptops with a tablet switch device.
 The software will scan through input devices looking 2-in-1 tablet switches which have the event codes EV_SW,SW_TABLET_MODE.  
 Those devices will be populated and you can select the tablet switch for your device.
 
-Upon selecting either Tablet mode or Stylus Only Mode, tablet-switch will send a SW_TABLET_MODE event via the tablet switch input device.  
+Upon selecting either Tablet mode or Stylus Only Mode, a SW_TABLET_MODE event will be sent via the tablet switch input device.  
 In my case the tablet switch input device is "HP WMI Hotkeys".  
 The SW_TABLET_MODE event will alert the operating system that the computer is in tablet mode.  
 Gnome for instance will disable the keyboard and trackpad while enabling the on screen keyboard and screen rotation.
