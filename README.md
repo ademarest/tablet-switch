@@ -8,8 +8,8 @@ Here's what the different operating modes do:
 tablet-switch currently works on my HP ENVY x360 Convert 13-ay1035nr.  
 It should work on other laptops with a tablet switch device.  
   
-The software will scan through input devices looking 2-in-1 tablet switches which have the event codes EV_SW,SW_TABLET_MODE.  
-Those devices will be populated and you can select the tablet switch for your device.
+The software will find 2-in-1 tablet switches which have the event codes EV_SW,SW_TABLET_MODE.  
+Those devices will be populated in the ui and you can select the tablet switch for your device.
 
 Upon selecting either Tablet mode or Stylus Only Mode, a SW_TABLET_MODE event will be sent via the tablet switch input device.  
 In my case the tablet switch input device is "HP WMI Hotkeys".  
