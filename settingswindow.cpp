@@ -15,12 +15,12 @@ SettingsWindow::SettingsWindow()
 
     connect(trayIcon,&QSystemTrayIcon::activated,this,&SettingsWindow::showTrayIconMenu);
     connect(ui->systemTrayIconThemeComboBox,&QComboBox::currentIndexChanged,this,&SettingsWindow::setupSystemTray);
-    connect(ui->stylusOnlyOptionsCheckBox,&QCheckBox::stateChanged,this,&SettingsWindow::setupSystemTray);
-    connect(ui->stylusOnlyOptionsCheckBox,&QCheckBox::stateChanged,this,&SettingsWindow::enableStylusOnlyOptions);
+    connect(ui->stylusOnlyOptionsCheckBox,&QCheckBox::checkStateChanged,this,&SettingsWindow::setupSystemTray);
+    connect(ui->stylusOnlyOptionsCheckBox,&QCheckBox::checkStateChanged,this,&SettingsWindow::enableStylusOnlyOptions);
 
     for(auto widget : this->children()){
         if(qobject_cast<QCheckBox*>(widget)){
-            connect(qobject_cast<QCheckBox*>(widget),&QCheckBox::stateChanged,this,&SettingsWindow::writeSettings);
+            connect(qobject_cast<QCheckBox*>(widget),&QCheckBox::checkStateChanged,this,&SettingsWindow::writeSettings);
         }
         if(qobject_cast<QComboBox*>(widget)){
             connect(qobject_cast<QComboBox*>(widget),&QComboBox::currentIndexChanged,this,&SettingsWindow::writeSettings);
@@ -105,7 +105,7 @@ void SettingsWindow::populateAllEventDeviceNames(){
 
 void SettingsWindow::findTabletSwitchEventDeviceNames(){
     QDir directory("/dev/input");
-    QStringList eventDevices = directory.entryList(QStringList() << "event*",QDir::System);
+    const QStringList eventDevices = directory.entryList(QStringList() << "event*",QDir::System);
 
     for(const auto &devFile : eventDevices){
         struct libevdev *dev = NULL;
@@ -274,7 +274,7 @@ int SettingsWindow::writeInputEventToDeviceFile(int fd, input_event event){
 int SettingsWindow::getDeviceFileDescriptorByName(QString devName){
 
     QDir directory("/dev/input");
-    QStringList eventDevices = directory.entryList(QStringList() << "event*",QDir::System);
+    const QStringList eventDevices = directory.entryList(QStringList() << "event*",QDir::System);
 
     for(const auto &devFile : eventDevices){
         struct libevdev *dev = NULL;
