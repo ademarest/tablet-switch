@@ -209,6 +209,10 @@ SettingsWindow::InputMode SettingsWindow::determineCurrentInputMode(QString devN
 {
     struct libevdev *dev = NULL;
     int fd = getDeviceFileDescriptorByName(devName);
+    if(fd < 0){
+        //Input mode is an enum. In the event that the current inpute mode cannot be determined it's safed to assume that this is a standard PC.
+        return COMPUTER;
+    }
     libevdev_new_from_fd(fd,&dev);
     InputMode inputMode = static_cast<InputMode>(libevdev_get_event_value(dev,EV_SW,SW_TABLET_MODE));
     libevdev_free(dev);
