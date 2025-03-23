@@ -23,9 +23,11 @@ TRANSLATIONS += \
 CONFIG += lrelease
 CONFIG += embed_translations
 
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
+# Deploy for Archlinux. This allows the qmake6 command to be as the following line
+# DESTDIR="$pkgdir" PREFIX="/usr" qmake6 ../src/tablet-switch.pro;
+# This will create a Makefile that is capable of installing (e.g. # make install) to the correct location via
+# standard DESTDIR and PREFIX environment variables.
+unix:!android: target.path = $$(DESTDIR)$$(PREFIX)/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
