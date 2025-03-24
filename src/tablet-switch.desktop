@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=0.9
+Name=Tablet Switch
+GenericName=Tablet Switch
+Comment=A system tray application to manually switch between 2-in-1 laptop modes.
+Icon=input-tablet
+Exec=/usr/bin/tablet-switch
+Terminal=false
+Categories=System;Qt;Settings;
+Keywords=system;process;task
