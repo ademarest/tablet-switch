@@ -28,6 +28,11 @@ Clone the repository
 $ git clone https://github.com/ademarest/tablet-switch.git
 ```
 
+Change directory into the git repository
+```bash
+$ cd ./tablet-switch
+```
+
 Compile tablet-switch
 ```bash
 $ ./compile.sh
